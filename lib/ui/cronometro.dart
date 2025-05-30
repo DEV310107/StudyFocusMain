@@ -16,8 +16,8 @@ class _CronometroState extends State<Cronometro> {
   bool _isRunning = false;
   CronometroModo _modo = CronometroModo.estudo;
 
-  static const int _tempoEstudo = 10 ; // 50 minutos em segundos
-  static const int _tempoPausa = 15 ; // 15 minutos em segundos
+  static const int _tempoEstudo = 10 ; 
+  static const int _tempoPausa = 15 ; 
 
   @override
   void dispose() {
