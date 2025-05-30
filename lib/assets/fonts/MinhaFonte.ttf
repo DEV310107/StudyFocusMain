@@ -1,0 +1,4 @@
+Text(
+  'Texto com Jersey 20',
+  style: TextStyle(fontFamily: 'Jersey20'),
+)
