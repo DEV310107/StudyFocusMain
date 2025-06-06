@@ -16,8 +16,8 @@ class _CronometroState extends State<Cronometro> {
   bool _isRunning = false;
   CronometroModo _modo = CronometroModo.estudo;
 
-  static const int _tempoEstudo = 10 ; 
-  static const int _tempoPausa = 15 ; 
+  int _tempoEstudoMin = 1;
+  int _tempoPausaMin = 1;
 
   @override
   void dispose() {
@@ -33,7 +33,7 @@ class _CronometroState extends State<Cronometro> {
       setState(() {
         _seconds++;
 
-        int limite = _modo == CronometroModo.estudo ? _tempoEstudo : _tempoPausa;
+        int limite = (_modo == CronometroModo.estudo ? _tempoEstudoMin : _tempoPausaMin) * 60;
 
         if (_seconds >= limite) {
           _seconds = 0;
@@ -46,9 +46,7 @@ class _CronometroState extends State<Cronometro> {
   void _stopTimer() {
     _timer?.cancel();
     _timer = null;
-    setState(() {
-      _isRunning = false;
-    });
+    setState(() => _isRunning = false);
   }
 
   void _resetTimer() {
@@ -74,53 +72,77 @@ class _CronometroState extends State<Cronometro> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final isEstudo = _modo == CronometroModo.estudo;
 
     return Scaffold(
+      backgroundColor: const Color(0xFF121212),
       appBar: AppBar(
         title: const Text('StudyFocus'),
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        centerTitle: true,
       ),
       body: Center(
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(24),
           constraints: BoxConstraints(maxWidth: width > 500 ? 500 : width * 0.9),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                _modo == CronometroModo.estudo ? 'Estudo' : 'Pausa',
+                isEstudo ? 'Modo Estudo' : 'Modo Pausa',
                 style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: _modo == CronometroModo.estudo ? Colors.green : Colors.blue,
+                  fontSize: 28,
+                  fontWeight: FontWeight.w600,
+                  color: isEstudo ? Colors.greenAccent : Colors.lightBlueAccent,
                 ),
               ),
               const SizedBox(height: 20),
               Text(
                 _formatTime(_seconds),
                 style: const TextStyle(
-                  fontSize: 70,
+                  fontSize: 60,
                   fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 30),
+              _inputCampo("Tempo de Estudo (min)", _tempoEstudoMin.toString(), (value) {
+                final v = int.tryParse(value);
+                if (v != null && v > 0) setState(() => _tempoEstudoMin = v);
+              }),
+              const SizedBox(height: 16),
+              _inputCampo("Tempo de Pausa (min)", _tempoPausaMin.toString(), (value) {
+                final v = int.tryParse(value);
+                if (v != null && v > 0) setState(() => _tempoPausaMin = v);
+              }),
+              const SizedBox(height: 32),
               Wrap(
-                spacing: 20,
+                spacing: 16,
                 children: [
                   ElevatedButton.icon(
-                    icon: Icon(_isRunning ? Icons.pause : Icons.play_arrow),
-                    label: Text(_isRunning ? 'Parar' : 'Iniciar'),
+                    icon: Icon(_isRunning ? Icons.pause_circle : Icons.play_circle),
+                    label: Text(_isRunning ? 'Pausar' : 'Iniciar'),
                     onPressed: () {
-                      if (_isRunning) {
-                        _stopTimer();
-                      } else {
-                        _startTimer();
-                      }
+                      _isRunning ? _stopTimer() : _startTimer();
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepPurple,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
                   ),
                   ElevatedButton.icon(
                     icon: const Icon(Icons.refresh),
                     label: const Text('Zerar'),
                     onPressed: _resetTimer,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.redAccent,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      textStyle: const TextStyle(fontSize: 18),
+                    ),
                   ),
                 ],
               ),
@@ -128,6 +150,25 @@ class _CronometroState extends State<Cronometro> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _inputCampo(String label, String valorInicial, void Function(String) onChange) {
+    return TextField(
+      style: const TextStyle(color: Colors.white),
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(color: Colors.white70),
+        filled: true,
+        fillColor: const Color(0xFF1E1E1E),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Colors.deepPurpleAccent),
+        ),
+      ),
+      onChanged: onChange,
     );
   }
 }

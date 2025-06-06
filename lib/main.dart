@@ -8,7 +8,7 @@ void main() {
 class App extends StatelessWidget {
   const App({super.key});
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Cronometro(),
