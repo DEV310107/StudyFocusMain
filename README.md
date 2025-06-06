@@ -1,7 +1,3 @@
-# 🤳 Imagem do Projeto:
-![Imagem do Projeto](https://github.com/DEV310107/StudyFocusMain/raw/main/img/img.png)
-
-
 # 📘 Documentação do Projeto: **StudyFocus**
 
 ## 📝 Descrição
@@ -47,6 +43,8 @@ StudyFocus/
 > O projeto não usa nenhuma dependência externa além do Flutter nativo.
 
 ---
+# 🤳 Imagem do Projeto:
+![Imagem do Projeto](https://github.com/DEV310107/StudyFocusMain/raw/main/img/img.png)
 
 ## 📄 Arquivos Importantes
 
