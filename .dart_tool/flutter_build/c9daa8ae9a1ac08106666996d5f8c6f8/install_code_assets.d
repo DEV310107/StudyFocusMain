@@ -1,0 +1,1 @@
+ C:\\Users\\Aluno\\Documents\\StudyFocus\\.dart_tool\\flutter_build\\c9daa8ae9a1ac08106666996d5f8c6f8\\native_assets.json: 
