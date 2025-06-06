@@ -1,4 +1,5 @@
-# 📘 Imagem do Projeto:
+# 🤳 Imagem do Projeto:
+Image.network('https://github.com/DEV310107/StudyFocusMain/raw/main/img/img.png')
 
 # 📘 Documentação do Projeto: **StudyFocus**
 
