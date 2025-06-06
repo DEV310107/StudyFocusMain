@@ -1,3 +1,4 @@
+# 📘 Imagem do Projeto:
 
 # 📘 Documentação do Projeto: **StudyFocus**
 
