@@ -34,7 +34,7 @@
             "outputFile": "com.example.flutter_application_1.app-debug-26:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Aluno\\Documents\\StudyFocus\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\Aluno\\Documents\\StudyFocusMain\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -673,25 +673,6 @@
             "outputFile": "com.example.flutter_application_1.app-debug-26:/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Aluno\\Documents\\StudyFocus\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "176,832",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "483,998"
-                    },
-                    "to": {
-                        "startLines": "155,159",
-                        "startColumns": "4,4",
-                        "startOffsets": "7894,8075",
-                        "endLines": "158,161",
-                        "endColumns": "12,12",
-                        "endOffsets": "8070,8239"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Aluno\\.gradle\\caches\\8.10.2\\transforms\\55520e4df2220e27f13f0bbb7467d11a\\transformed\\fragment-1.7.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,10",
@@ -795,6 +776,25 @@
                         "endLines": "2,8,16,24,37,43,49,50,51,52,53,54,118,180,185,311,326,342",
                         "endColumns": "58,11,11,11,11,11,11,52,59,51,44,38,59,24,24,24,24,24",
                         "endOffsets": "109,282,501,720,1094,1282,1469,1522,1582,1634,1679,1718,5790,9331,9489,13855,14469,15123"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Aluno\\Documents\\StudyFocusMain\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "176,832",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "483,998"
+                    },
+                    "to": {
+                        "startLines": "155,159",
+                        "startColumns": "4,4",
+                        "startOffsets": "7894,8075",
+                        "endLines": "158,161",
+                        "endColumns": "12,12",
+                        "endOffsets": "8070,8239"
                     }
                 },
                 {
